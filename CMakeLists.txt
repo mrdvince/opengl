@@ -30,8 +30,6 @@ FetchContent_Declare( glad
 FetchContent_MakeAvailable(glfw glad)
 
 set(PROJECT_SOURCES src/main.cpp
-                    include/app.h
-                    src/app.cpp
 )
 
 add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
