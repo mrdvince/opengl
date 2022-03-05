@@ -9,46 +9,30 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(FETCHCONTENT_QUIET FALSE)
 
-#
 # glfw
-#
 set(GLFW_BUILD_DOCS FALSE)
 set(GLFW_BUILD_EXAMPLES FALSE)
 set(GLFW_BUILD_TESTS FALSE)
 
-FetchContent_Declare(
-  glfw
-  GIT_REPOSITORY https://github.com/glfw/glfw.git
-  GIT_TAG 3.3.4
-  GIT_PROGRESS TRUE)
-
-#
+FetchContent_Declare( glfw
+                      GIT_REPOSITORY https://github.com/glfw/glfw.git
+                      GIT_TAG 3.3.4
+                      GIT_PROGRESS TRUE
+)
 # glad
-#
-FetchContent_Declare(
-  glad
-  GIT_REPOSITORY https://github.com/Dav1dde/glad
-  GIT_TAG v0.1.34
-  GIT_PROGRESS TRUE)
+FetchContent_Declare( glad
+                      GIT_REPOSITORY https://github.com/Dav1dde/glad
+                      GIT_TAG v0.1.34
+                      GIT_PROGRESS TRUE
+)
 
-#
-# glm
-#
-# FetchContent_Declare(
-#   glm
-#   GIT_REPOSITORY https://github.com/g-truc/glm
-#   GIT_TAG 0.9.9.8
-#   GIT_PROGRESS TRUE)
-
-#
 # fetch dependencies
-#
 FetchContent_MakeAvailable(glfw glad)
 
-
-set(
-    PROJECT_SOURCES
-    src/main.cpp)
+set(PROJECT_SOURCES src/main.cpp
+                    include/app.h
+                    src/app.cpp
+)
 
 add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
 
